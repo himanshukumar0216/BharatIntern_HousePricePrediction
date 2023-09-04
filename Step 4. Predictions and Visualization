@@ -1,0 +1,22 @@
+# Predictions and Visualization
+# To visualize the predictions against actual prices, we'll use a scatter plot
+plt.scatter(y_test, y_pred)
+plt.xlabel("Actual Prices")
+plt.ylabel("Predicted Prices")
+plt.title("Actual Prices vs. Predicted Prices")
+plt.show()
+
+# We can also create a residual plot to check the model's performance
+residuals = y_test - y_pred
+plt.scatter(y_test, residuals)
+plt.axhline(y=0, color='red', linestyle='--')
+plt.xlabel("Actual Prices")
+plt.ylabel("Residuals")
+plt.title("Residual Plot")
+plt.show()
+
+# Lastly, let's use the trained model to make predictions on new data and visualize the results
+new_data = [[3, 2, 1500, 4000, 1, 0, 0, 3]]
+predicted_price = model.predict(new_data)
+
+print("Predicted Price:", predicted_price[0])
